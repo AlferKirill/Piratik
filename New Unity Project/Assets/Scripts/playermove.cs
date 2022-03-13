@@ -10,18 +10,17 @@ public class playermove : MonoBehaviour
     private bool FacingRight = true;
     public Animator animator;
     public float JumpForce;
-    public bool isGrounded;
+    public bool isGround;
     public Transform GC;
     public float CheckRadius;
     public LayerMask WhatIsGround;
-    private int extraJumps;
-    public int extraJumpsValue;
+    [Range(-5f, 5f)] public float checkGroundOffSetY = -1.8f;
+    [Range(0, 5f)] public float checkGroundRadius = 0.3f;
     bool Jump = false;
     float sX, sY;
 
     void Start()
     {
-        extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
         sX = transform.position.x;
         sY = transform.position.y;
@@ -32,25 +31,18 @@ public class playermove : MonoBehaviour
         HorizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         animator.SetFloat("Speed", Mathf.Abs(HorizontalMove));
 
-        if (Input.GetButtonDown("Jump"))
+        if (isGround && Input.GetKeyDown(KeyCode.Space))
         {
-            Jump = true;
-            animator.SetBool("IsJump", true);
+            rb.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);           
         }
 
-        if (isGrounded = true)
+        if (isGround == false)
         {
-            extraJumps = extraJumpsValue;
+            animator.SetBool("IsJump", true);
         }
-        
-        if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
+        else
         {
-            rb.velocity = Vector2.up * JumpForce;
-            extraJumps--;
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded == true)
-        {
-            rb.velocity = Vector2.up * JumpForce;
+            animator.SetBool("IsJump", false);
         }
     }
 
@@ -65,7 +57,7 @@ public class playermove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(GC.position, CheckRadius, WhatIsGround);
+        isGround = Physics2D.OverlapCircle(GC.position, CheckRadius, WhatIsGround);
 
         Vector2 targetVelocity = new Vector2(HorizontalMove * 10f, rb.velocity.y);
         rb.velocity = targetVelocity;
