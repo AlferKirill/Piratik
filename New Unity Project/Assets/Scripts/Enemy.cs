@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed;
-    public float StoppingDistance;
-    public float RetriatDistance;
+    public float speed = 2f;
+    public float StoppingDistance = 5f;
+    public float RetriatDistance = 5f;
 
 
     public Transform Player;
@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.FindGameObjectsWithTag("Player");
     }
 
     private void Update()

@@ -48,7 +48,7 @@ public class WeaponHold : MonoBehaviour
             }
             else if (holdPoint.position.x < transform.position.x && hold == true)
             {
-                hit.collider.gameObject.transform.localScale = new Vector2(transform.localRotation.x * 180 , transform.localScale.y * 1);
+                hit.collider.gameObject.transform.localScale = new Vector2(transform.localScale.x * 1 , transform.localScale.y * -1);
             }
         }
 

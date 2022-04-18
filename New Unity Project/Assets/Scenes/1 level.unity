@@ -5528,7 +5528,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.6978803, y: -0.45584643}
+  m_Offset: {x: -3.6978803, y: 6.770833}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5539,7 +5539,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.79352, y: 7.1749}
+  m_Size: {x: 0.79352, y: 21.628256}
   m_EdgeRadius: 0
 --- !u!4 &129477319
 Transform:
@@ -5778,7 +5778,7 @@ GameObject:
   - component: {fileID: 266116846}
   - component: {fileID: 266116845}
   m_Layer: 0
-  m_Name: Potions_15
+  m_Name: Boost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6219,6 +6219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3195199066fa7434d842c7f72efb1d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  StoppingDistance: 0
+  RetriatDistance: 0
+  Player: {fileID: 0}
 --- !u!95 &410686564
 Animator:
   serializedVersion: 3
@@ -6352,6 +6356,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3195199066fa7434d842c7f72efb1d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  StoppingDistance: 5
+  RetriatDistance: 5
+  Player: {fileID: 1295499322}
 --- !u!1 &410744134
 GameObject:
   m_ObjectHideFlags: 0
@@ -8280,7 +8288,7 @@ GameObject:
   - component: {fileID: 1293729770}
   - component: {fileID: 1293729769}
   m_Layer: 8
-  m_Name: Sword Idle 01
+  m_Name: Sword
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9660,3 +9668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3195199066fa7434d842c7f72efb1d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  StoppingDistance: 0
+  RetriatDistance: 0
+  Player: {fileID: 0}
